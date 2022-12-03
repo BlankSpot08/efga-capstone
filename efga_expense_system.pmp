@@ -1312,6 +1312,24 @@ $(document).ready(function(){
     }
 });
 ]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Global" ScriptName="Database_Connecting"><![CDATA[// Database Connecting event
+function Database_Connecting(&$info)
+{
+    // Example:
+    var_dump($info);
+    //if ($info["id"] == "DB" && IsLocal()) { // Testing on local PC
+    //    $info["host"] = "locahost";
+    //    $info["user"] = "root";
+    //    $info["pass"] = "";
+    //}
+
+    if (!IsLocal()) {
+        $info["host"] = "localhost";
+        $info["user"] = "root";
+        $info["pass"] = "bh2236";
+        $info["db"] = "capstone";
+    }
+}]]></CustomScript>
   <Menu MenuID="88" MenuText="Dashboard" MenuParentID="-1" MenuGroup="0" MenuSource="" MenuExtUrl="" MenuAnonymous="0" MenuSecurity="" MenuUrl="Employee Dashboarddd" MenuType="" MenuCustomUrl="0" MenuLevel="0" MenuShow="1" MenuDisplayOrder="100" MenuIconClass="" MenuNavbar="0" />
   <Menu MenuID="83" MenuText="utilities" MenuParentID="-1" MenuGroup="0" MenuSource="" MenuExtUrl="" MenuAnonymous="0" MenuSecurity="" MenuUrl="utilities" MenuType="" MenuCustomUrl="0" MenuLevel="0" MenuShow="0" MenuDisplayOrder="200" MenuIconClass="" MenuNavbar="0" />
   <Menu MenuID="79" MenuText="employee monthly expense" MenuParentID="-1" MenuGroup="0" MenuSource="" MenuExtUrl="" MenuAnonymous="0" MenuSecurity="" MenuUrl="employee monthly expense" MenuType="" MenuCustomUrl="0" MenuLevel="0" MenuShow="0" MenuDisplayOrder="300" MenuIconClass="" MenuNavbar="0" />

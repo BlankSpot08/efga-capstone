@@ -32,17 +32,22 @@ function GetStartsWithAFilter($FldExpression, $dbid = 0)
 }
 
 // Global user functions
-
 // Database Connecting event
 function Database_Connecting(&$info)
 {
     // Example:
-    //var_dump($info);
+    var_dump($info);
     //if ($info["id"] == "DB" && IsLocal()) { // Testing on local PC
     //    $info["host"] = "locahost";
     //    $info["user"] = "root";
     //    $info["pass"] = "";
     //}
+    if (!IsLocal()) {
+        $info["host"] = "localhost";
+        $info["user"] = "root";
+        $info["pass"] = "bh2236";
+        $info["db"] = "capstone";
+    }
 }
 
 // Database Connected event
