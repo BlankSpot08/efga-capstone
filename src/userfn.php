@@ -46,7 +46,7 @@ function Database_Connecting(&$info)
     // if (!IsLocal()) {
     // }
     $info["host"] = "localhost";
-    $info["user"] = "admin";
+    $info["user"] = "root";
     $info["pass"] = "bh2236";
     $info["db"] = "capstone";
 }
