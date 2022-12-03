@@ -13,7 +13,7 @@ $Page->showMessage();
 		<a class="navbar-brand" href="javascript:void(0)">
 				<img src="images/nav_logo.png" alt="Logo" style="height:30px;"> 
 		</a>
-		<a class="navbar-brand" href="efga.chefmolang.com/login">EFGA Carry Enterprises</a>
+		<a class="navbar-brand" href="/homepage">EFGA Carry Enterprises</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 			<span class="navbar-togger-icon"></span>
 		</button>
@@ -26,7 +26,7 @@ $Page->showMessage();
 					<a class="nav-link" href="javascript:void(0)"></a>
 				</li>
 			</ul>
-			<a class="btn btn-outline-light" href="efga.chefmolang.com/login" role="button">Log in</a>
+			<a class="btn btn-outline-light" href="/login" role="button">Log in</a>
 		</div>
 	</div>	
 </nav>
