@@ -33,7 +33,9 @@ $Page->showMessage();
 
 <style type="text/css">   
     body{
-        background-image: url("images/homepagee.jpg")
+        background-image: url("images/homepagee.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
     }   
 </style>
 
