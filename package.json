@@ -1,0 +1,11 @@
+{
+    "name": "efga-expense-system",
+    "version": "18.8.2",
+    "description": "efga expense system",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "private": true,
+    "dependencies": {},
+    "engines": {
+        "node": ">=16"
+    }
+}
