@@ -6,47 +6,11 @@ namespace PHPMaker2022\efga_expense_system;
 // Page object
 $Login = &$Page;
 ?>
-
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="javascript:void(0)">
-				<img src="images/nav_logo.png" alt="Logo" style="height:30px;"> 
-		</a>
-		<a class="navbar-brand" href="../efga_expense_system/Homepage">EFGA Carry Enterprises</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-			<span class="navbar-togger-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="mynavbar">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)"></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0)"></a>
-				</li>
-			</ul>
-			
-
-		</div>
-	</div>	
-</nav>
-
-<div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-
 <script>
 loadjs.ready("head", function () {
     // Write your client script here, no need to add script tags.
 });
 </script>
-
-
 <?php $Page->showPageHeader(); ?>
 <?php
 $Page->showMessage();
@@ -103,17 +67,6 @@ loadjs.ready(["wrapper", "head"], function() {
     loadjs.done("flogin");
 });
 </script>
-
-<style type="text/css">
-    
-    body{
-        background-image: url("images/loginn.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    
-</style>
-
 <form name="flogin" id="flogin" class="ew-form ew-login-form" action="<?= CurrentPageUrl(false) ?>" method="post">
     <?php if (Config("CHECK_TOKEN")) { ?>
     <input type="hidden" name="<?= $TokenNameKey ?>" value="<?= $TokenName ?>"><!-- CSRF token name -->
