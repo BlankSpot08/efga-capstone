@@ -250,13 +250,6 @@ class Login extends UserAccount
         return; // Return to controller
     }
 
-    // Reset Captcha
-    protected function resetCaptcha()
-    {
-        $sessionName = Captcha()->getSessionName();
-        $_SESSION[$sessionName] = Random();
-    }
-
     // Properties
     public $Username;
     public $Password;
@@ -406,21 +399,6 @@ class Login extends UserAccount
                 $_SESSION[SESSION_USER_PROFILE_LOGIN_TYPE] = $this->LoginType->CurrentValue; // Save login type
             }
             $validPwd = false;
-
-            // CAPTCHA checking
-            if (IsPost()) {
-                $captcha = Captcha();
-                $captcha->Response = Post($captcha->getElementName());
-                if (!$captcha->validate()) { // CAPTCHA unmatched
-                    if ($captcha->getFailureMessage() == "") {
-                        $captcha->setDefaultFailureMessage();
-                    }
-                    $validate = false;
-                }
-            }
-            if (!$validate) {
-                $this->resetCaptcha();
-            }
             if ($validate) {
                 // Call Logging In event
                 $validate = $this->userLoggingIn($this->Username->CurrentValue, $this->Password->CurrentValue);

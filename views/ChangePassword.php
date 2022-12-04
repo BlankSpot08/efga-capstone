@@ -28,9 +28,6 @@ loadjs.ready(["wrapper", "head"], function() {
         ["cpwd", [ew.Validators.required(ew.language.phrase("ConfirmPassword")), ew.Validators.mismatchPassword]]
     ]);
 
-    // Captcha
-    <?= Captcha()->getScript("fchange_password") ?>
-
     // Validate
     fchange_password.validate = function() {
         if (!this.validateRequired)
@@ -98,9 +95,6 @@ $Page->showMessage();
         </div>
         <div class="invalid-feedback"><?= $Page->ConfirmPassword->getErrorMessage() ?></div>
     </div>
-<!-- captcha html (begin) -->
-<?= Captcha()->getHtml(); ?>
-<!-- captcha html (end) -->
 <div class="d-grid mb-3">
     <button class="btn btn-primary ew-btn" name="btn-submit" id="btn-submit" type="submit" formaction="<?= CurrentPageUrl(false) ?>"><?= $Language->phrase("ChangePasswordBtn") ?></button>
 </div>
