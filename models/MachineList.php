@@ -1205,7 +1205,7 @@ class MachineList extends Machine
         $item->ShowInButtonGroup = false;
 
         // Drop down button for ListOptions
-        $this->ListOptions->UseDropDownButton = false;
+        $this->ListOptions->UseDropDownButton = true;
         $this->ListOptions->DropDownButtonPhrase = $Language->phrase("ButtonListOptions");
         $this->ListOptions->UseButtonGroup = false;
         if ($this->ListOptions->UseButtonGroup && IsMobile()) {
@@ -2165,7 +2165,14 @@ class MachineList extends Machine
     // Page Load event
     public function pageLoad()
     {
-        //Log("Page Load");
+        Language()->setPhraseClass("AddLink", "");
+        Language()->setPhrase("AddLink", "Add Machine");
+        Language()->setPhraseClass("DeleteLink", "");
+        Language()->setPhrase("DeleteLink", "Delete Machine");
+        Language()->setPhraseClass("EditLink", "");
+        Language()->setPhrase("EditLink", "Edit Machine");
+        Language()->setPhraseClass("ViewLink", "");
+        Language()->setPhrase("ViewLink", "View Machine");
     }
 
     // Page Unload event

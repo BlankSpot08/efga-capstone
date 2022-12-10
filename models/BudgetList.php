@@ -978,7 +978,7 @@ class BudgetList extends Budget
         $item->ShowInButtonGroup = false;
 
         // Drop down button for ListOptions
-        $this->ListOptions->UseDropDownButton = false;
+        $this->ListOptions->UseDropDownButton = true;
         $this->ListOptions->DropDownButtonPhrase = $Language->phrase("ButtonListOptions");
         $this->ListOptions->UseButtonGroup = false;
         if ($this->ListOptions->UseButtonGroup && IsMobile()) {
@@ -1862,7 +1862,14 @@ class BudgetList extends Budget
     // Page Load event
     public function pageLoad()
     {
-        //Log("Page Load");
+        Language()->setPhraseClass("AddLink", "");
+        Language()->setPhrase("AddLink", "Add Budget");
+        Language()->setPhraseClass("DeleteLink", "");
+        Language()->setPhrase("DeleteLink", "Delete Budget");
+        Language()->setPhraseClass("EditLink", "");
+        Language()->setPhrase("EditLink", "Edit Budget");
+        Language()->setPhraseClass("ViewLink", "");
+        Language()->setPhrase("ViewLink", "View Budget");
     }
 
     // Page Unload event

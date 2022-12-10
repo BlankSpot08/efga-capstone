@@ -1165,7 +1165,7 @@ class OfficeDepartmentList extends OfficeDepartment
         $item->ShowInButtonGroup = false;
 
         // Drop down button for ListOptions
-        $this->ListOptions->UseDropDownButton = false;
+        $this->ListOptions->UseDropDownButton = true;
         $this->ListOptions->DropDownButtonPhrase = $Language->phrase("ButtonListOptions");
         $this->ListOptions->UseButtonGroup = false;
         if ($this->ListOptions->UseButtonGroup && IsMobile()) {
@@ -1975,7 +1975,14 @@ class OfficeDepartmentList extends OfficeDepartment
     // Page Load event
     public function pageLoad()
     {
-        //Log("Page Load");
+        Language()->setPhraseClass("AddLink", "");
+        Language()->setPhrase("AddLink", "Add");
+        Language()->setPhraseClass("DeleteLink", "");
+        Language()->setPhrase("DeleteLink", "Delete");
+        Language()->setPhraseClass("EditLink", "");
+        Language()->setPhrase("EditLink", "Edit");
+        Language()->setPhraseClass("ViewLink", "");
+        Language()->setPhrase("ViewLink", "View");
     }
 
     // Page Unload event

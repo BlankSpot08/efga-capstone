@@ -1377,7 +1377,7 @@ class ManExpenseList extends ManExpense
         $item->ShowInButtonGroup = false;
 
         // Drop down button for ListOptions
-        $this->ListOptions->UseDropDownButton = false;
+        $this->ListOptions->UseDropDownButton = true;
         $this->ListOptions->DropDownButtonPhrase = $Language->phrase("ButtonListOptions");
         $this->ListOptions->UseButtonGroup = false;
         if ($this->ListOptions->UseButtonGroup && IsMobile()) {
@@ -2524,7 +2524,14 @@ class ManExpenseList extends ManExpense
     // Page Load event
     public function pageLoad()
     {
-        //Log("Page Load");
+        Language()->setPhraseClass("AddLink", "");
+        Language()->setPhrase("AddLink", "Add Manager Expense");
+        Language()->setPhraseClass("DeleteLink", "");
+        Language()->setPhrase("DeleteLink", "Delete Manager Expense");
+        Language()->setPhraseClass("EditLink", "");
+        Language()->setPhrase("EditLink", "Edit Manager Expense");
+        Language()->setPhraseClass("ViewLink", "");
+        Language()->setPhrase("ViewLink", "View Manager Expense");
     }
 
     // Page Unload event

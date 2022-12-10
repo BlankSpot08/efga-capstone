@@ -676,7 +676,7 @@ class BudgetView extends Budget
         // Set up action default
         $option = $options["action"];
         $option->DropDownButtonPhrase = $Language->phrase("ButtonActions");
-        $option->UseDropDownButton = false;
+        $option->UseDropDownButton = true;
         $option->UseButtonGroup = true;
         $item = &$option->addGroupOption();
         $item->Body = "";

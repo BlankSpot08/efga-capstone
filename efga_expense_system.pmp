@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Product="PHPMaker" Version="18.8.0" ProjID="{4EB84F2A-5676-4E71-AB80-D3ECF349B44C}" ProjName="efga_expense_system" MultiLanguage="1" DefaultLanguageFile="english.xml" LanguageFiles="english.xml" Cache="0" CharSet="utf-8" OutputNameType="Original" BodyTitle="EFGA Expense Management System" BodyFont="Verdana" BodySize="1" HeaderLogo="C:\xampp\htdocs\efga_system\header.png" FooterText="EFGA Carry Enterprises. 2022. All rights reserved." Template="C:\Users\Kimberly Manansala\AppData\Roaming\PHPMaker2022\node_modules\@phpmaker\php2022" Destination="C:\xampp\htdocs\efga_expense_system\" SecType="Both" SecLoginID="dbrYpGeeyCOlALAAvNA9Iw" SecPasswd="dbrYpGeeyCOlALAAvNA9Iw" SecTbl="user_account" SecLoginIDFld="username" SecPasswdFld="password" SecChangePwdPage="1" SecLoginCaptcha="1" SecChangePwdCaptcha="1" ModalChangePassword="1" SmtpServer="localhost" SmtpServerPort="25" DefaultDateFormat="5" DateSeparator="/" UploadPath="files/" UploadAllowedFileExt="gif,jpg,jpeg,bmp,png,doc,docx,xls,xlsx,pdf,zip" CssStyles="&#xD;&#xA;" OtherGenList="reportcontroller=1,reportinfo=1,summary=1,summary|class=1,@logo=1,@favicon=1,@lang_english.xml=1,composer.json=1,userpackagejson=1,src=1,colorbox=1,plugins=1,fonts=1,bootstrap=1,adminlte=1,css=1,@adminltecss=1,projcss=1,swagger=1,swaggerhtml=1,swaggeryaml=1,js=1,jquery=1,html=1,htaccess=1,webconfig=1,apihtaccess=1,constants=1,config=1,configdev=1,configprod=1,userlevelsettings=1,layout=1,menu=1,phpfn=1,userfn=1,userglobaljs=1,usereventjs=1,email=1,error=1,error|class=1,personal_data=1,personal_data|class=1,login=3,login|class=1,change_password=1,change_password|class=1,userpriv=1,userpriv|class=1,logout|class=1,apiindex=1,index=1,definitions=1,apiroutes=1,routes=1,controllerbase=1,otherscontroller=1,apicontroller=1,exportpdfcss=1,exportpdf=1,exportreportpdf=1,datetimepickerjs=1,datetimepickerscss=1,eweditor.js=1,chartjs=1,chartjsrenderer=1,captcha|class=1,phpcaptcha.php=1,dejavusans.ttf=1,monofont.ttf=1,aftershock.ttf=1" OtherExpanded="1" MD5Password="1" CaseSensitivePassword="1" RecPerPage="20" RecPerPageList="10,20,50,ALL" GrpPerPage="3" GrpPerPageList="1,2,3,5,ALL" PrinterFriendly="1" ExportWord="1" ExportExcel="1" ExportType="ALL" SortType="1" PagerStyle="2" ListExport="1" RepeatColumns="5" AppRootFolder="C:\xampp\htdocs\efga_expense_system\" RootRelativePath="." EmailComponent="PHP" FavIcon="C:\xampp\htdocs\efga_expense_system\images\site_icon.ico" ChartMenuItems="1" MultiPageType="Tabs" UserProfileSessionTimeout="30" GitRemoteUrl="OmHAmEKVmPSthDKosKo0NOeBTpPaq_pvp0b5S26lY-uch2KuVzCACiDtBiSWwuz-HjNYgxU8NRkQ5Mly-Hu_jQ" GitUserName="k8Svl5xLQJQ0xHrPoSiFKQ" GitPassword="zAT0VoWK2ISzYH1BMik-MQtI62RgsDWMDLJk8lf32QfOdW9G5mnr5zrnbFlr_gb6" Restore="1">
+<Project Product="PHPMaker" Version="18.8.0" ProjID="{4EB84F2A-5676-4E71-AB80-D3ECF349B44C}" ProjName="efga_expense_system" MultiLanguage="1" DefaultLanguageFile="english.xml" LanguageFiles="english.xml" Cache="0" CharSet="utf-8" OutputNameType="Original" BodyTitle="EFGA Expense Management System" BodyFont="Verdana" BodySize="1" HeaderLogo="C:\xampp\htdocs\efga_system\header.png" FooterText="EFGA Carry Enterprises. 2022. All rights reserved." Template="C:\Users\Kimberly Manansala\AppData\Roaming\PHPMaker2022\node_modules\@phpmaker\php2022" Destination="C:\xampp\htdocs\efga_expense_system\" SecType="Both" SecLoginID="dbrYpGeeyCOlALAAvNA9Iw" SecPasswd="dbrYpGeeyCOlALAAvNA9Iw" SecTbl="user_account" SecLoginIDFld="username" SecPasswdFld="password" SecChangePwdPage="1" ModalChangePassword="1" SmtpServer="localhost" SmtpServerPort="25" DefaultDateFormat="5" DateSeparator="/" UploadPath="files/" UploadAllowedFileExt="gif,jpg,jpeg,bmp,png,doc,docx,xls,xlsx,pdf,zip" CssStyles="&#xD;&#xA;" OtherGenList="reportcontroller=1,reportinfo=1,summary=1,summary|class=1,@logo=1,@favicon=1,@lang_english.xml=1,composer.json=1,userpackagejson=1,src=1,colorbox=1,plugins=1,fonts=1,bootstrap=1,adminlte=1,css=1,@adminltecss=1,projcss=1,swagger=1,swaggerhtml=1,swaggeryaml=1,js=1,jquery=1,html=1,htaccess=1,webconfig=1,apihtaccess=1,constants=1,config=1,configdev=1,configprod=1,userlevelsettings=1,layout=1,menu=1,phpfn=1,userfn=1,userglobaljs=1,usereventjs=1,email=1,error=1,error|class=1,personal_data=1,personal_data|class=1,login=3,login|class=1,change_password=1,change_password|class=1,userpriv=1,userpriv|class=1,logout|class=1,apiindex=1,index=1,definitions=1,apiroutes=1,routes=1,controllerbase=1,otherscontroller=1,apicontroller=1,exportpdfcss=1,exportpdf=1,exportreportpdf=1,datetimepickerjs=1,datetimepickerscss=1,eweditor.js=1,chartjs=1,chartjsrenderer=1,captcha|class=1,phpcaptcha.php=1,dejavusans.ttf=1,monofont.ttf=1,aftershock.ttf=1" OtherExpanded="1" MD5Password="1" CaseSensitivePassword="1" RecPerPage="20" RecPerPageList="10,20,50,ALL" GrpPerPage="3" GrpPerPageList="1,2,3,5,ALL" PrinterFriendly="1" ExportWord="1" ExportExcel="1" ExportType="ALL" SortType="1" PagerStyle="2" ListExport="1" RepeatColumns="5" AppRootFolder="C:\xampp\htdocs\efga_expense_system\" RootRelativePath="." EmailComponent="PHP" FavIcon="C:\xampp\htdocs\efga_expense_system\images\site_icon.ico" ChartMenuItems="1" UseDropDownForListOptions="1" MultiPageType="Tabs" UserProfileSessionTimeout="30" GitRemoteUrl="OmHAmEKVmPSthDKosKo0NOeBTpPaq_pvp0b5S26lY-uch2KuVzCACiDtBiSWwuz-HjNYgxU8NRkQ5Mly-Hu_jQ" GitUserName="k8Svl5xLQJQ0xHrPoSiFKQ" GitPassword="zAT0VoWK2ISzYH1BMik-MQtI62RgsDWMDLJk8lf32QfOdW9G5mnr5zrnbFlr_gb6" Restore="1">
   <Database DBID="DB" DBName="capstone" DBType="MySQL" DBConnectionMethod="DIRECT" DBURL="http://167.99.75.69/" DBHost="localhost" DBPort="3306" DBUID="sEFZ143DM_7MDxTL3V3EPQ" DBQuoteS="`" DBQuoteE="`" DBDBMSName="MySQL" DBDBMSVer="100425" DBProviderName="e.World Technology Ltd." DBProviderVer="18" MaxUploadSize="2000000" SecUserLevelFld="userlevel" SecDefault="0,&quot;Default&quot;,0" SecuUserIDFld="username" UseDynamicUserLevel="1" UserLevelTbl="userlevels" UserLevelIdFld="userlevelid" UserLevelNameFld="userlevelname" UserLevelPrivTbl="userlevelpermissions" UserLevelPrivTblNameFld="tablename" UserLevelPrivUserLevelFld="userlevelid" UserLevelPrivPrivFld="permission">
     <Table TblName="budget" TblType="TABLE" TblGen="1" TblGenList="controller=1,info=1,list=1,list|class=1,add=1,add|class=1,view=1,view|class=1,edit=1,edit|class=1,delete=1,delete|class=1" TblList="1" TblView="1" TblEdit="1" TblEditConfirm="1" TblAdd="1" TblAddConfirm="1" TblDelete="1" TblCaption="budget" TblUpdatable="1" TblSrchType="BASIC" TblBasicSearch="1" TblExtendedBasicSearch="1" TblSecurity="0,&quot;Default&quot;,0" TblLoaded="1" TblShowEmptyRows="0" TblUseGlobal="1" TblRecPerPage="20" TblRecPerPageList="10,20,50,ALL" TblGrpPerPage="3" TblGrpPerPageList="1,2,3,5,ALL" TblPagerStyle="2" TblInlineDelete="1" TblModalAdd="1" TblModalEdit="1" TblCheckConcurrentUpdate="1" TblUseButtonsForLinks="1" TblUseDropDownForAction="1" TblUseDropDownForListOptions="1" TblUseDropDownForExport="1">
       <Field FldName="id" FldType="3" FldTypeName="INT" NativeDataType="3" FldSupport="1" FldSize="7" FldIsPrimaryKey="1" FldAutoIncrement="1" FldAttribute="96" FldValidate="INTEGER" FldGenerate="1" FldList="1" FldExport="1" FldView="1" FldEdit="1" FldSearch="1" FldSrchOpr="=" FldCaption="id" FldViewTag="FORMATTED TEXT" FldHtmlTag="NO" FldTagMaxLength="0" FldSelectType="Values" FldTagAPrefix="None" FldIncLeadDigit="-2" FldUseParen="-2" FldGpDigits="-2" FldResizeQuality="75" />
@@ -955,7 +955,7 @@ function Row_Updating($rsold, &$rsnew)
 		<a class="navbar-brand" href="javascript:void(0)">
 				<img src="images/nav_logo.png" alt="Logo" style="height:30px;"> 
 		</a>
-		<a class="navbar-brand" href="../efga_expense_system/Homepage">EFGA Carry Enterprises</a>
+		<a class="navbar-brand" href="/Homepage">EFGA Carry Enterprises</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 			<span class="navbar-togger-icon"></span>
 		</button>
@@ -975,7 +975,9 @@ function Row_Updating($rsold, &$rsnew)
 
 <style type="text/css">   
     body{
-        background-image: url("images/homepagee.jpg")
+        background-image: url("images/homepagee.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
     }   
 </style>
 ]]></CustomScript>
@@ -1315,22 +1317,271 @@ $(document).ready(function(){
   <CustomScript ScriptType="Server" ScriptCodeType="Global" ScriptName="Database_Connecting"><![CDATA[// Database Connecting event
 function Database_Connecting(&$info)
 {
-    // Example:
-    // var_dump($info);
-    //if ($info["id"] == "DB" && IsLocal()) { // Testing on local PC
-    //    $info["host"] = "locahost";
-    //    $info["user"] = "root";
-    //    $info["pass"] = "";
-    //}
+//// Example:
+//     // var_dump($info);
+//     //if ($info["id"] == "DB" && IsLocal()) { // Testing on local PC
+//     //    $info["host"] = "locahost";
+//     //    $info["user"] = "root";
+//     //    $info["pass"] = "";
+//     //}
 
-    // if (!IsLocal()) {
+//     // if (!IsLocal()) {
         
-    // }
+//     // }
 
-    $info["host"] = "localhost";
-    $info["user"] = "root";
-    $info["pass"] = "bh2236";
-    $info["db"] = "capstone";
+//     $info["host"] = "localhost";
+//     $info["user"] = "admin";
+//     $info["pass"] = "bh2236";
+//     $info["db"] = "capstone";
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="budget"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Budget");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Budget");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Budget");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Budget");
+
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="cash_advance"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Cash Advance");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Cash Advance");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Cash Advance");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Cash Advance");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="emp_expense"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Employee Expense");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Employee Expense");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Employee Expense");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Employee Expense");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="emp_expense_category"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Expense Category");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Expense Category");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Expense Category");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Expense Expense");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="emp_expense_subcategory"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Expense Subcategory");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Expense Subcategory");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Expense Subcategory");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Expense Subcategory");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="employee"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Employee");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Employee");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Employee");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Employee");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="employee_position"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Employee Position");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Employee Position");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Employee Position");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Employee Position");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="machine"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Machine");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Machine");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Machine");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Machine");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="machine_brand"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Machine Brand");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Machine Brand");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Machine Brand");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Machine Brand");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="machine_category"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Machine Category");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Machine Category");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Machine Category");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Machine Category");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="office_department"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="user_account"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Account");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Account");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Account");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Account");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="man_expense"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Manager Expense");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Manager Expense");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Manager Expense");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Manager Expense");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="man_expense_category"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Expense Category");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Expense Category");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Expense Category");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Expense Expense");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="man_expense_subcategory"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("AddLink", "");
+    Language()->setPhrase("AddLink", "Add Expense Subcategory");
+
+    Language()->setPhraseClass("DeleteLink", "");
+    Language()->setPhrase("DeleteLink", "Delete Expense Subcategory");
+
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Edit Expense Subcategory");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View Expense Subcategory");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="cash_advance_request"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Accept or Deny");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="pending_expense"><![CDATA[// Page Load event
+function Page_Load()
+{
+    Language()->setPhraseClass("EditLink", "");
+    Language()->setPhrase("EditLink", "Accept or Deny");
+
+    Language()->setPhraseClass("ViewLink", "");
+    Language()->setPhrase("ViewLink", "View");
+}]]></CustomScript>
+  <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="Employee Dashboard"><![CDATA[// Page Load event
+function Page_Load()
+{
+    
 }]]></CustomScript>
   <Menu MenuID="88" MenuText="Dashboard" MenuParentID="-1" MenuGroup="0" MenuSource="" MenuExtUrl="" MenuAnonymous="0" MenuSecurity="" MenuUrl="Employee Dashboarddd" MenuType="" MenuCustomUrl="0" MenuLevel="0" MenuShow="1" MenuDisplayOrder="100" MenuIconClass="" MenuNavbar="0" />
   <Menu MenuID="83" MenuText="utilities" MenuParentID="-1" MenuGroup="0" MenuSource="" MenuExtUrl="" MenuAnonymous="0" MenuSecurity="" MenuUrl="utilities" MenuType="" MenuCustomUrl="0" MenuLevel="0" MenuShow="0" MenuDisplayOrder="200" MenuIconClass="" MenuNavbar="0" />

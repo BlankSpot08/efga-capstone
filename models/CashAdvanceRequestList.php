@@ -1283,7 +1283,7 @@ class CashAdvanceRequestList extends CashAdvanceRequest
         $item->ShowInButtonGroup = false;
 
         // Drop down button for ListOptions
-        $this->ListOptions->UseDropDownButton = false;
+        $this->ListOptions->UseDropDownButton = true;
         $this->ListOptions->DropDownButtonPhrase = $Language->phrase("ButtonListOptions");
         $this->ListOptions->UseButtonGroup = false;
         if ($this->ListOptions->UseButtonGroup && IsMobile()) {
@@ -2307,7 +2307,10 @@ class CashAdvanceRequestList extends CashAdvanceRequest
     // Page Load event
     public function pageLoad()
     {
-        //Log("Page Load");
+        Language()->setPhraseClass("EditLink", "");
+        Language()->setPhrase("EditLink", "Accept or Deny");
+        Language()->setPhraseClass("ViewLink", "");
+        Language()->setPhrase("ViewLink", "View");
     }
 
     // Page Unload event
