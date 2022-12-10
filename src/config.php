@@ -135,17 +135,17 @@ $CONFIG = [
         '</div><div class="card-body">%s</div></div>', // Debug message template
 
     // Environment
-    "ENVIRONMENT" => "development",
+    "ENVIRONMENT" => "production",
 
     // Container
-    "COMPILE_CONTAINER" => false,
+    "COMPILE_CONTAINER" => true,
 
     // Use route cache
-    "USE_ROUTE_CACHE" => false,
+    "USE_ROUTE_CACHE" => true,
 
     // General
     "UNFORMAT_YEAR" => 50, // Unformat year
-    "RANDOM_KEY" => 'sEyOUrdqeZ31Mg2J', // Random key for encryption
+    "RANDOM_KEY" => '50ecx0m2iC34udOI', // Random key for encryption
     "ENCRYPTION_KEY" => '', // Encryption key for data protection
     "PROJECT_STYLESHEET_FILENAME" => "css/efga_expense_system.css", // Project stylesheet file name
     "USE_COMPRESSED_STYLESHEET" => true, // Compressed stylesheet
