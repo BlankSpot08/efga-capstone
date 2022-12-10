@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ew-language version="18.2.0" id="en-US" name="English (US)" desc="English (US)" author="e.World Technology Limited" date="2022/12/6">
+<ew-language version="18.2.0" id="en-US" name="English (US)" desc="English (US)" author="e.World Technology Limited" date="2022/12/11">
   <!--
     IMPORTANT NOTES:
     1. Language ID must be RFC 4646 language tags (which use hyphen, not underscore), e.g. en-US, fr-CA, fr-FR,

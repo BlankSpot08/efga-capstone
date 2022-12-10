@@ -145,7 +145,7 @@ $CONFIG = [
 
     // General
     "UNFORMAT_YEAR" => 50, // Unformat year
-    "RANDOM_KEY" => 'e2WmIaSoDAfDOfwo', // Random key for encryption
+    "RANDOM_KEY" => 'sEyOUrdqeZ31Mg2J', // Random key for encryption
     "ENCRYPTION_KEY" => '', // Encryption key for data protection
     "PROJECT_STYLESHEET_FILENAME" => "css/efga_expense_system.css", // Project stylesheet file name
     "USE_COMPRESSED_STYLESHEET" => true, // Compressed stylesheet
@@ -162,7 +162,7 @@ $CONFIG = [
     "NAVBAR_CLASS" => "main-header navbar navbar-expand navbar-dark border-bottom-0",
 
     // Check Token
-    "CHECK_TOKEN" => true,
+    "CHECK_TOKEN" => false,
 
     // Remove XSS
     "REMOVE_XSS" => true,

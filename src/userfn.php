@@ -44,10 +44,11 @@ function Database_Connecting(&$info)
 //     //}
 
 //     // if (!IsLocal()) {
-//     $info["host"] = "localhost";
-//     $info["user"] = "admin";
-//     $info["pass"] = "bh2236";
-//     $info["db"] = "capstone";
+//     // }
+    $info["host"] = "localhost";
+    $info["user"] = "admin";
+    $info["pass"] = "bh2236";
+    $info["db"] = "capstone";
 }
 
 // Database Connected event
