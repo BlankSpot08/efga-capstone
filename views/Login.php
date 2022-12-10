@@ -36,7 +36,6 @@ loadjs.ready(["wrapper", "head"], function() {
     ]);
 
     // Captcha
-    <?= Captcha()->getScript("flogin") ?>
 
     // Validate
     flogin.validate = function() {
