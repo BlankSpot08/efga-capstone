@@ -48,7 +48,7 @@ function Database_Connecting(&$info)
     $info["host"] = "localhost";
     $info["user"] = "admin";
     $info["pass"] = "bh2236";
-    $info["db"] = "capstone";
+    $info["dbname"] = "capstone";
 }
 
 // Database Connected event
