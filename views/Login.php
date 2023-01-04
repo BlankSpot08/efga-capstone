@@ -35,9 +35,6 @@ loadjs.ready(["wrapper", "head"], function() {
         ["password", ew.Validators.required(ew.language.phrase("Password")), <?= $Page->Password->IsInvalid ? "true" : "false" ?>]
     ]);
 
-    // Captcha
-    <?= Captcha()->getScript("flogin") ?>
-
     // Validate
     flogin.validate = function() {
         if (!this.validateRequired)
