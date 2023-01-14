@@ -13,7 +13,7 @@ $Login = &$Page;
 		<a class="navbar-brand" href="javascript:void(0)">
 				<img src="images/nav_logo.png" alt="Logo" style="height:30px;"> 
 		</a>
-		<a class="navbar-brand" href="../efga_expense_system/Homepage">EFGA Carry Enterprises</a>
+		<a class="navbar-brand" href="Homepage">EFGA Carry Enterprises</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
 			<span class="navbar-togger-icon"></span>
 		</button>
@@ -72,7 +72,6 @@ loadjs.ready(["wrapper", "head"], function() {
     ]);
 
     // Captcha
-    <?= Captcha()->getScript("flogin") ?>
 
     // Validate
     flogin.validate = function() {
