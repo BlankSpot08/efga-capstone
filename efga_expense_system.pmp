@@ -1329,10 +1329,10 @@ function Database_Connecting(&$info)
         
 //     // }
 
-    $info["host"] = "localhost";
-    $info["user"] = "admin";
-    $info["pass"] = "bh2236";
-    $info["db"] = "capstone";
+    // $info["host"] = "localhost";
+    // $info["user"] = "admin";
+    // $info["pass"] = "bh2236";
+    // $info["db"] = "capstone";
 }]]></CustomScript>
   <CustomScript ScriptType="Server" ScriptCodeType="Table" ScriptName="Page_Load" ScriptCtrlID="list" ScriptL1Key="budget"><![CDATA[// Page Load event
 function Page_Load()

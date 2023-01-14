@@ -35,16 +35,6 @@ function GetStartsWithAFilter($FldExpression, $dbid = 0)
 // Database Connecting event
 function Database_Connecting(&$info)
 {
-//// Example:
-//     // var_dump($info);
-//     //if ($info["id"] == "DB" && IsLocal()) { // Testing on local PC
-//     //    $info["host"] = "locahost";
-//     //    $info["user"] = "root";
-//     //    $info["pass"] = "";
-//     //}
-
-//     // if (!IsLocal()) {
-//     // }
     $info["host"] = "localhost";
     $info["user"] = "admin";
     $info["pass"] = "bh2236";
