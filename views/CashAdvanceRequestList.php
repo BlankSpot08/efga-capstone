@@ -27,7 +27,49 @@ loadjs.ready(["wrapper", "head"], function () {
     fcash_advance_requestsrch = new ew.Form("fcash_advance_requestsrch", "list");
     currentSearchForm = fcash_advance_requestsrch;
 
+    // Add fields
+    var fields = currentTable.fields;
+    fcash_advance_requestsrch.addFields([
+        ["id", [], fields.id.isInvalid],
+        ["expCategory_id", [], fields.expCategory_id.isInvalid],
+        ["expSubcategory_id", [], fields.expSubcategory_id.isInvalid],
+        ["budget_id", [], fields.budget_id.isInvalid],
+        ["dateReceived", [], fields.dateReceived.isInvalid],
+        ["submittedBy", [], fields.submittedBy.isInvalid],
+        ["note", [], fields.note.isInvalid],
+        ["status", [], fields.status.isInvalid],
+        ["validatedBy", [], fields.validatedBy.isInvalid]
+    ]);
+
+    // Validate form
+    fcash_advance_requestsrch.validate = function () {
+        if (!this.validateRequired)
+            return true; // Ignore validation
+        var fobj = this.getForm();
+
+        // Validate fields
+        if (!this.validateFields())
+            return false;
+
+        // Call Form_CustomValidate event
+        if (!this.customValidate(fobj)) {
+            this.focus();
+            return false;
+        }
+        return true;
+    }
+
+    // Form_CustomValidate
+    fcash_advance_requestsrch.customValidate = function(fobj) { // DO NOT CHANGE THIS LINE!
+        // Your custom validation code here, return false if invalid.
+        return true;
+    }
+
+    // Use JavaScript validation or not
+    fcash_advance_requestsrch.validateRequired = ew.CLIENT_VALIDATE;
+
     // Dynamic selection lists
+    fcash_advance_requestsrch.lists.status = <?= $Page->status->toClientList($Page) ?>;
 
     // Filters
     fcash_advance_requestsrch.filterList = <?= $Page->getFilterList() ?>;
@@ -66,6 +108,55 @@ $Page->renderOtherOptions();
 <input type="hidden" name="cmd" value="search">
 <input type="hidden" name="t" value="cash_advance_request">
 <div class="ew-extended-search container-fluid">
+<div class="row mb-0<?= ($Page->SearchFieldsPerRow > 0) ? " row-cols-sm-" . $Page->SearchFieldsPerRow : "" ?>">
+<?php
+// Render search row
+$Page->RowType = ROWTYPE_SEARCH;
+$Page->resetAttributes();
+$Page->renderRow();
+?>
+<?php if ($Page->status->Visible) { // status ?>
+<?php
+if (!$Page->status->UseFilter) {
+    $Page->SearchColumnCount++;
+}
+?>
+    <div id="xs_status" class="col-sm-auto d-sm-flex mb-3 px-0 pe-sm-2<?= $Page->status->UseFilter ? " ew-filter-field" : "" ?>">
+        <div class="d-flex my-1 my-sm-0">
+            <label class="ew-search-caption ew-label"><?= $Page->status->caption() ?></label>
+            <div class="ew-search-operator">
+<?= $Language->phrase("=") ?>
+<input type="hidden" name="z_status" id="z_status" value="=">
+</div>
+        </div>
+        <div id="el_cash_advance_request_status" class="ew-search-field">
+<template id="tp_x_status">
+    <div class="form-check">
+        <input type="radio" class="form-check-input" data-table="cash_advance_request" data-field="x_status" name="x_status" id="x_status"<?= $Page->status->editAttributes() ?>>
+        <label class="form-check-label"></label>
+    </div>
+</template>
+<div id="dsl_x_status" class="ew-item-list"></div>
+<selection-list hidden
+    id="x_status"
+    name="x_status"
+    value="<?= HtmlEncode($Page->status->AdvancedSearch->SearchValue) ?>"
+    data-type="select-one"
+    data-template="tp_x_status"
+    data-bs-target="dsl_x_status"
+    data-repeatcolumn="5"
+    class="form-control<?= $Page->status->isInvalidClass() ?>"
+    data-table="cash_advance_request"
+    data-field="x_status"
+    data-value-separator="<?= $Page->status->displayValueSeparatorAttribute() ?>"
+    <?= $Page->status->editAttributes() ?>></selection-list>
+<div class="invalid-feedback"><?= $Page->status->getErrorMessage(false) ?></div>
+</div>
+        <div class="d-flex my-1 my-sm-0">
+        </div><!-- /.ew-search-field -->
+    </div><!-- /.col-sm-auto -->
+<?php } ?>
+</div><!-- /.row -->
 <div class="row mb-0">
     <div class="col-sm-auto px-0 pe-sm-2">
         <div class="ew-basic-search input-group">

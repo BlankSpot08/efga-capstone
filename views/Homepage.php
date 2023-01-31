@@ -26,7 +26,7 @@ $Page->showMessage();
 					<a class="nav-link" href="javascript:void(0)"></a>
 				</li>
 			</ul>
-			<a class="btn btn-outline-light" href="login" role="button">Log in</a>
+			<a class="btn btn-outline-light" href="../efga_expense_system/login" role="button">Log in</a>
 		</div>
 	</div>	
 </nav>

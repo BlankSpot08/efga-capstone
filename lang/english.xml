@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ew-language version="18.2.0" id="en-US" name="English (US)" desc="English (US)" author="e.World Technology Limited" date="2023/1/14">
+<ew-language version="18.2.0" id="en-US" name="English (US)" desc="English (US)" author="e.World Technology Limited" date="2023/1/31">
   <!--
     IMPORTANT NOTES:
     1. Language ID must be RFC 4646 language tags (which use hyphen, not underscore), e.g. en-US, fr-CA, fr-FR,
@@ -1130,7 +1130,7 @@
         <phrase id="fldcaption" value="Budget" />
       </field>
       <field id="machine_id">
-        <phrase id="fldcaption" value="machine id" />
+        <phrase id="fldcaption" value="Machine" />
       </field>
       <field id="datereceived">
         <phrase id="fldcaption" value="Date Received" />
@@ -1407,7 +1407,7 @@
         <phrase id="fldcaption" value="Budget" />
       </field>
       <field id="machine_id">
-        <phrase id="fldcaption" value="Machine ID" />
+        <phrase id="fldcaption" value="Machine" />
       </field>
       <field id="datereceived">
         <phrase id="fldcaption" value="Date Received" />
@@ -1564,7 +1564,7 @@
     <table id="yesterday">
       <phrase id="tblcaption" value="Expense Yesterday" />
       <field id="sumaemp_amount">
-        <phrase id="fldcaption" value="amount" />
+        <phrase id="fldcaption" value="Amount" />
       </field>
     </table>
     <table id="weekly">

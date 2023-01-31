@@ -257,7 +257,6 @@ class CashAdvanceRequest extends DbTable
             'TEXT'
         );
         $this->dateReceived->InputTextType = "text";
-        $this->dateReceived->Required = true; // Required field
         $this->dateReceived->DefaultErrorMessage = str_replace("%s", $GLOBALS["DATE_FORMAT"], $Language->phrase("IncorrectDate"));
         $this->Fields['dateReceived'] = &$this->dateReceived;
 

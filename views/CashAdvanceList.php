@@ -77,6 +77,7 @@ loadjs.ready(["wrapper", "head"], function () {
     fcash_advancesrch.lists.expCategory_id = <?= $Page->expCategory_id->toClientList($Page) ?>;
     fcash_advancesrch.lists.expSubcategory_id = <?= $Page->expSubcategory_id->toClientList($Page) ?>;
     fcash_advancesrch.lists.submittedBy = <?= $Page->submittedBy->toClientList($Page) ?>;
+    fcash_advancesrch.lists.status = <?= $Page->status->toClientList($Page) ?>;
 
     // Filters
     fcash_advancesrch.filterList = <?= $Page->getFilterList() ?>;
@@ -231,6 +232,47 @@ if (!$Page->submittedBy->UseFilter) {
             ew.createFilter(options);
         });
         </script>
+    </div><!-- /.col-sm-auto -->
+<?php } ?>
+<?php if ($Page->status->Visible) { // status ?>
+<?php
+if (!$Page->status->UseFilter) {
+    $Page->SearchColumnCount++;
+}
+?>
+    <div id="xs_status" class="col-sm-auto d-sm-flex mb-3 px-0 pe-sm-2<?= $Page->status->UseFilter ? " ew-filter-field" : "" ?>">
+        <div class="d-flex my-1 my-sm-0">
+            <label class="ew-search-caption ew-label"><?= $Page->status->caption() ?></label>
+            <div class="ew-search-operator">
+<?= $Language->phrase("=") ?>
+<input type="hidden" name="z_status" id="z_status" value="=">
+</div>
+        </div>
+        <div id="el_cash_advance_status" class="ew-search-field">
+<template id="tp_x_status">
+    <div class="form-check">
+        <input type="radio" class="form-check-input" data-table="cash_advance" data-field="x_status" name="x_status" id="x_status"<?= $Page->status->editAttributes() ?>>
+        <label class="form-check-label"></label>
+    </div>
+</template>
+<div id="dsl_x_status" class="ew-item-list"></div>
+<selection-list hidden
+    id="x_status"
+    name="x_status"
+    value="<?= HtmlEncode($Page->status->AdvancedSearch->SearchValue) ?>"
+    data-type="select-one"
+    data-template="tp_x_status"
+    data-bs-target="dsl_x_status"
+    data-repeatcolumn="5"
+    class="form-control<?= $Page->status->isInvalidClass() ?>"
+    data-table="cash_advance"
+    data-field="x_status"
+    data-value-separator="<?= $Page->status->displayValueSeparatorAttribute() ?>"
+    <?= $Page->status->editAttributes() ?>></selection-list>
+<div class="invalid-feedback"><?= $Page->status->getErrorMessage(false) ?></div>
+</div>
+        <div class="d-flex my-1 my-sm-0">
+        </div><!-- /.ew-search-field -->
     </div><!-- /.col-sm-auto -->
 <?php } ?>
 </div><!-- /.row -->

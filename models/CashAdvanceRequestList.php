@@ -708,14 +708,23 @@ class CashAdvanceRequestList extends CashAdvanceRequest
 
             // Get default search criteria
             AddFilter($this->DefaultSearchWhere, $this->basicSearchWhere(true));
+            AddFilter($this->DefaultSearchWhere, $this->advancedSearchWhere(true));
 
             // Get basic search values
             $this->loadBasicSearchValues();
+
+            // Get and validate search values for advanced search
+            if (EmptyValue($this->UserAction)) { // Skip if user action
+                $this->loadSearchValues();
+            }
 
             // Process filter list
             if ($this->processFilterList()) {
                 $this->terminate();
                 return;
+            }
+            if (!$this->validateSearch()) {
+                // Nothing to do
             }
 
             // Restore search parms from Session if not searching / reset / export
@@ -732,6 +741,11 @@ class CashAdvanceRequestList extends CashAdvanceRequest
             // Get basic search criteria
             if (!$this->hasInvalidFields()) {
                 $srchBasic = $this->basicSearchWhere();
+            }
+
+            // Get search criteria for advanced search
+            if (!$this->hasInvalidFields()) {
+                $srchAdvanced = $this->advancedSearchWhere();
             }
         }
 
@@ -755,6 +769,16 @@ class CashAdvanceRequestList extends CashAdvanceRequest
             if ($this->BasicSearch->Keyword != "") {
                 $srchBasic = $this->basicSearchWhere();
             }
+
+            // Load advanced search from default
+            if ($this->loadAdvancedSearchDefault()) {
+                $srchAdvanced = $this->advancedSearchWhere();
+            }
+        }
+
+        // Restore search settings from Session
+        if (!$this->hasInvalidFields()) {
+            $this->loadAdvancedSearch();
         }
 
         // Build search criteria
@@ -1091,6 +1115,111 @@ class CashAdvanceRequestList extends CashAdvanceRequest
         $this->BasicSearch->setType(@$filter[Config("TABLE_BASIC_SEARCH_TYPE")]);
     }
 
+    // Advanced search WHERE clause based on QueryString
+    protected function advancedSearchWhere($default = false)
+    {
+        global $Security;
+        $where = "";
+        if (!$Security->canSearch()) {
+            return "";
+        }
+        $this->buildSearchSql($where, $this->id, $default, false); // id
+        $this->buildSearchSql($where, $this->expCategory_id, $default, false); // expCategory_id
+        $this->buildSearchSql($where, $this->expSubcategory_id, $default, false); // expSubcategory_id
+        $this->buildSearchSql($where, $this->budget_id, $default, false); // budget_id
+        $this->buildSearchSql($where, $this->machine_id, $default, false); // machine_id
+        $this->buildSearchSql($where, $this->dateReceived, $default, false); // dateReceived
+        $this->buildSearchSql($where, $this->submittedBy, $default, false); // submittedBy
+        $this->buildSearchSql($where, $this->note, $default, false); // note
+        $this->buildSearchSql($where, $this->status, $default, false); // status
+        $this->buildSearchSql($where, $this->validatedBy, $default, false); // validatedBy
+        $this->buildSearchSql($where, $this->amount, $default, false); // amount
+        $this->buildSearchSql($where, $this->used, $default, false); // used
+
+        // Set up search parm
+        if (!$default && $where != "" && in_array($this->Command, ["", "reset", "resetall"])) {
+            $this->Command = "search";
+        }
+        if (!$default && $this->Command == "search") {
+            $this->id->AdvancedSearch->save(); // id
+            $this->expCategory_id->AdvancedSearch->save(); // expCategory_id
+            $this->expSubcategory_id->AdvancedSearch->save(); // expSubcategory_id
+            $this->budget_id->AdvancedSearch->save(); // budget_id
+            $this->machine_id->AdvancedSearch->save(); // machine_id
+            $this->dateReceived->AdvancedSearch->save(); // dateReceived
+            $this->submittedBy->AdvancedSearch->save(); // submittedBy
+            $this->note->AdvancedSearch->save(); // note
+            $this->status->AdvancedSearch->save(); // status
+            $this->validatedBy->AdvancedSearch->save(); // validatedBy
+            $this->amount->AdvancedSearch->save(); // amount
+            $this->used->AdvancedSearch->save(); // used
+        }
+        return $where;
+    }
+
+    // Build search SQL
+    protected function buildSearchSql(&$where, &$fld, $default, $multiValue)
+    {
+        $fldParm = $fld->Param;
+        $fldVal = $default ? $fld->AdvancedSearch->SearchValueDefault : $fld->AdvancedSearch->SearchValue;
+        $fldOpr = $default ? $fld->AdvancedSearch->SearchOperatorDefault : $fld->AdvancedSearch->SearchOperator;
+        $fldCond = $default ? $fld->AdvancedSearch->SearchConditionDefault : $fld->AdvancedSearch->SearchCondition;
+        $fldVal2 = $default ? $fld->AdvancedSearch->SearchValue2Default : $fld->AdvancedSearch->SearchValue2;
+        $fldOpr2 = $default ? $fld->AdvancedSearch->SearchOperator2Default : $fld->AdvancedSearch->SearchOperator2;
+        $wrk = "";
+        if (is_array($fldVal)) {
+            $fldVal = implode(Config("MULTIPLE_OPTION_SEPARATOR"), $fldVal);
+        }
+        if (is_array($fldVal2)) {
+            $fldVal2 = implode(Config("MULTIPLE_OPTION_SEPARATOR"), $fldVal2);
+        }
+        $fldOpr = strtoupper(trim($fldOpr));
+        if ($fldOpr == "") {
+            $fldOpr = "=";
+        }
+        $fldOpr2 = strtoupper(trim($fldOpr2));
+        if ($fldOpr2 == "") {
+            $fldOpr2 = "=";
+        }
+        if (Config("SEARCH_MULTI_VALUE_OPTION") == 1 && !$fld->UseFilter || !IsMultiSearchOperator($fldOpr)) {
+            $multiValue = false;
+        }
+        if ($multiValue) {
+            $wrk = $fldVal != "" ? GetMultiSearchSql($fld, $fldOpr, $fldVal, $this->Dbid) : ""; // Field value 1
+            $wrk2 = $fldVal2 != "" ? GetMultiSearchSql($fld, $fldOpr2, $fldVal2, $this->Dbid) : ""; // Field value 2
+            AddFilter($wrk, $wrk2, $fldCond);
+        } else {
+            $fldVal = $this->convertSearchValue($fld, $fldVal);
+            $fldVal2 = $this->convertSearchValue($fld, $fldVal2);
+            $wrk = GetSearchSql($fld, $fldVal, $fldOpr, $fldCond, $fldVal2, $fldOpr2, $this->Dbid);
+        }
+        if ($this->SearchOption == "AUTO" && in_array($this->BasicSearch->getType(), ["AND", "OR"])) {
+            $cond = $this->BasicSearch->getType();
+        } else {
+            $cond = SameText($this->SearchOption, "OR") ? "OR" : "AND";
+        }
+        AddFilter($where, $wrk, $cond);
+    }
+
+    // Convert search value
+    protected function convertSearchValue(&$fld, $fldVal)
+    {
+        if ($fldVal == Config("NULL_VALUE") || $fldVal == Config("NOT_NULL_VALUE")) {
+            return $fldVal;
+        }
+        $value = $fldVal;
+        if ($fld->isBoolean()) {
+            if ($fldVal != "") {
+                $value = (SameText($fldVal, "1") || SameText($fldVal, "y") || SameText($fldVal, "t")) ? $fld->TrueValue : $fld->FalseValue;
+            }
+        } elseif ($fld->DataType == DATATYPE_DATE || $fld->DataType == DATATYPE_TIME) {
+            if ($fldVal != "") {
+                $value = UnFormatDateTime($fldVal, $fld->formatPattern());
+            }
+        }
+        return $value;
+    }
+
     // Return basic search WHERE clause based on search keyword and type
     protected function basicSearchWhere($default = false)
     {
@@ -1130,6 +1259,42 @@ class CashAdvanceRequestList extends CashAdvanceRequest
         if ($this->BasicSearch->issetSession()) {
             return true;
         }
+        if ($this->id->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->expCategory_id->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->expSubcategory_id->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->budget_id->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->machine_id->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->dateReceived->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->submittedBy->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->note->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->status->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->validatedBy->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->amount->AdvancedSearch->issetSession()) {
+            return true;
+        }
+        if ($this->used->AdvancedSearch->issetSession()) {
+            return true;
+        }
         return false;
     }
 
@@ -1142,6 +1307,9 @@ class CashAdvanceRequestList extends CashAdvanceRequest
 
         // Clear basic search parameters
         $this->resetBasicSearchParms();
+
+        // Clear advanced search parameters
+        $this->resetAdvancedSearchParms();
     }
 
     // Load advanced search default values
@@ -1156,6 +1324,23 @@ class CashAdvanceRequestList extends CashAdvanceRequest
         $this->BasicSearch->unsetSession();
     }
 
+    // Clear all advanced search parameters
+    protected function resetAdvancedSearchParms()
+    {
+        $this->id->AdvancedSearch->unsetSession();
+        $this->expCategory_id->AdvancedSearch->unsetSession();
+        $this->expSubcategory_id->AdvancedSearch->unsetSession();
+        $this->budget_id->AdvancedSearch->unsetSession();
+        $this->machine_id->AdvancedSearch->unsetSession();
+        $this->dateReceived->AdvancedSearch->unsetSession();
+        $this->submittedBy->AdvancedSearch->unsetSession();
+        $this->note->AdvancedSearch->unsetSession();
+        $this->status->AdvancedSearch->unsetSession();
+        $this->validatedBy->AdvancedSearch->unsetSession();
+        $this->amount->AdvancedSearch->unsetSession();
+        $this->used->AdvancedSearch->unsetSession();
+    }
+
     // Restore all search parameters
     protected function restoreSearchParms()
     {
@@ -1163,6 +1348,20 @@ class CashAdvanceRequestList extends CashAdvanceRequest
 
         // Restore basic search values
         $this->BasicSearch->load();
+
+        // Restore advanced search values
+        $this->id->AdvancedSearch->load();
+        $this->expCategory_id->AdvancedSearch->load();
+        $this->expSubcategory_id->AdvancedSearch->load();
+        $this->budget_id->AdvancedSearch->load();
+        $this->machine_id->AdvancedSearch->load();
+        $this->dateReceived->AdvancedSearch->load();
+        $this->submittedBy->AdvancedSearch->load();
+        $this->note->AdvancedSearch->load();
+        $this->status->AdvancedSearch->load();
+        $this->validatedBy->AdvancedSearch->load();
+        $this->amount->AdvancedSearch->load();
+        $this->used->AdvancedSearch->load();
     }
 
     // Set up sort parameters
@@ -1582,6 +1781,116 @@ class CashAdvanceRequestList extends CashAdvanceRequest
         $this->BasicSearch->setType(Get(Config("TABLE_BASIC_SEARCH_TYPE"), ""), false);
     }
 
+    // Load search values for validation
+    protected function loadSearchValues()
+    {
+        // Load search values
+        $hasValue = false;
+
+        // id
+        if ($this->id->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->id->AdvancedSearch->SearchValue != "" || $this->id->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // expCategory_id
+        if ($this->expCategory_id->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->expCategory_id->AdvancedSearch->SearchValue != "" || $this->expCategory_id->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // expSubcategory_id
+        if ($this->expSubcategory_id->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->expSubcategory_id->AdvancedSearch->SearchValue != "" || $this->expSubcategory_id->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // budget_id
+        if ($this->budget_id->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->budget_id->AdvancedSearch->SearchValue != "" || $this->budget_id->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+        if (is_array($this->budget_id->AdvancedSearch->SearchValue)) {
+            $this->budget_id->AdvancedSearch->SearchValue = implode(Config("MULTIPLE_OPTION_SEPARATOR"), $this->budget_id->AdvancedSearch->SearchValue);
+        }
+        if (is_array($this->budget_id->AdvancedSearch->SearchValue2)) {
+            $this->budget_id->AdvancedSearch->SearchValue2 = implode(Config("MULTIPLE_OPTION_SEPARATOR"), $this->budget_id->AdvancedSearch->SearchValue2);
+        }
+
+        // machine_id
+        if ($this->machine_id->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->machine_id->AdvancedSearch->SearchValue != "" || $this->machine_id->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // dateReceived
+        if ($this->dateReceived->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->dateReceived->AdvancedSearch->SearchValue != "" || $this->dateReceived->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // submittedBy
+        if ($this->submittedBy->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->submittedBy->AdvancedSearch->SearchValue != "" || $this->submittedBy->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // note
+        if ($this->note->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->note->AdvancedSearch->SearchValue != "" || $this->note->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // status
+        if ($this->status->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->status->AdvancedSearch->SearchValue != "" || $this->status->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // validatedBy
+        if ($this->validatedBy->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->validatedBy->AdvancedSearch->SearchValue != "" || $this->validatedBy->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // amount
+        if ($this->amount->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->amount->AdvancedSearch->SearchValue != "" || $this->amount->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+
+        // used
+        if ($this->used->AdvancedSearch->get()) {
+            $hasValue = true;
+            if (($this->used->AdvancedSearch->SearchValue != "" || $this->used->AdvancedSearch->SearchValue2 != "") && $this->Command == "") {
+                $this->Command = "search";
+            }
+        }
+        return $hasValue;
+    }
+
     // Load recordset
     public function loadRecordset($offset = -1, $rowcnt = -1)
     {
@@ -1949,12 +2258,110 @@ class CashAdvanceRequestList extends CashAdvanceRequest
             $this->validatedBy->LinkCustomAttributes = "";
             $this->validatedBy->HrefValue = "";
             $this->validatedBy->TooltipValue = "";
+        } elseif ($this->RowType == ROWTYPE_SEARCH) {
+            // id
+            $this->id->setupEditAttributes();
+            $this->id->EditCustomAttributes = "";
+            $this->id->EditValue = HtmlEncode($this->id->AdvancedSearch->SearchValue);
+            $this->id->PlaceHolder = RemoveHtml($this->id->caption());
+
+            // expCategory_id
+            $this->expCategory_id->setupEditAttributes();
+            $this->expCategory_id->EditCustomAttributes = "";
+            $this->expCategory_id->PlaceHolder = RemoveHtml($this->expCategory_id->caption());
+
+            // expSubcategory_id
+            $this->expSubcategory_id->setupEditAttributes();
+            $this->expSubcategory_id->EditCustomAttributes = "";
+            $this->expSubcategory_id->PlaceHolder = RemoveHtml($this->expSubcategory_id->caption());
+
+            // budget_id
+            $this->budget_id->EditCustomAttributes = "";
+            $this->budget_id->PlaceHolder = RemoveHtml($this->budget_id->caption());
+
+            // dateReceived
+            $this->dateReceived->setupEditAttributes();
+            $this->dateReceived->EditCustomAttributes = "";
+            $this->dateReceived->EditValue = HtmlEncode(FormatDateTime(UnFormatDateTime($this->dateReceived->AdvancedSearch->SearchValue, $this->dateReceived->formatPattern()), $this->dateReceived->formatPattern()));
+            $this->dateReceived->PlaceHolder = RemoveHtml($this->dateReceived->caption());
+
+            // submittedBy
+            $this->submittedBy->setupEditAttributes();
+            $this->submittedBy->EditCustomAttributes = "";
+            if (!$this->submittedBy->Raw) {
+                $this->submittedBy->AdvancedSearch->SearchValue = HtmlDecode($this->submittedBy->AdvancedSearch->SearchValue);
+            }
+            $this->submittedBy->EditValue = HtmlEncode($this->submittedBy->AdvancedSearch->SearchValue);
+            $this->submittedBy->PlaceHolder = RemoveHtml($this->submittedBy->caption());
+
+            // note
+            $this->note->setupEditAttributes();
+            $this->note->EditCustomAttributes = "";
+            if (!$this->note->Raw) {
+                $this->note->AdvancedSearch->SearchValue = HtmlDecode($this->note->AdvancedSearch->SearchValue);
+            }
+            $this->note->EditValue = HtmlEncode($this->note->AdvancedSearch->SearchValue);
+            $this->note->PlaceHolder = RemoveHtml($this->note->caption());
+
+            // status
+            $this->status->EditCustomAttributes = "";
+            $this->status->EditValue = $this->status->options(false);
+            $this->status->PlaceHolder = RemoveHtml($this->status->caption());
+
+            // validatedBy
+            $this->validatedBy->setupEditAttributes();
+            $this->validatedBy->EditCustomAttributes = "";
+            if (!$this->validatedBy->Raw) {
+                $this->validatedBy->AdvancedSearch->SearchValue = HtmlDecode($this->validatedBy->AdvancedSearch->SearchValue);
+            }
+            $this->validatedBy->EditValue = HtmlEncode($this->validatedBy->AdvancedSearch->SearchValue);
+            $this->validatedBy->PlaceHolder = RemoveHtml($this->validatedBy->caption());
+        }
+        if ($this->RowType == ROWTYPE_ADD || $this->RowType == ROWTYPE_EDIT || $this->RowType == ROWTYPE_SEARCH) { // Add/Edit/Search row
+            $this->setupFieldTitles();
         }
 
         // Call Row Rendered event
         if ($this->RowType != ROWTYPE_AGGREGATEINIT) {
             $this->rowRendered();
         }
+    }
+
+    // Validate search
+    protected function validateSearch()
+    {
+        // Check if validation required
+        if (!Config("SERVER_VALIDATE")) {
+            return true;
+        }
+
+        // Return validate result
+        $validateSearch = !$this->hasInvalidFields();
+
+        // Call Form_CustomValidate event
+        $formCustomError = "";
+        $validateSearch = $validateSearch && $this->formCustomValidate($formCustomError);
+        if ($formCustomError != "") {
+            $this->setFailureMessage($formCustomError);
+        }
+        return $validateSearch;
+    }
+
+    // Load advanced search
+    public function loadAdvancedSearch()
+    {
+        $this->id->AdvancedSearch->load();
+        $this->expCategory_id->AdvancedSearch->load();
+        $this->expSubcategory_id->AdvancedSearch->load();
+        $this->budget_id->AdvancedSearch->load();
+        $this->machine_id->AdvancedSearch->load();
+        $this->dateReceived->AdvancedSearch->load();
+        $this->submittedBy->AdvancedSearch->load();
+        $this->note->AdvancedSearch->load();
+        $this->status->AdvancedSearch->load();
+        $this->validatedBy->AdvancedSearch->load();
+        $this->amount->AdvancedSearch->load();
+        $this->used->AdvancedSearch->load();
     }
 
     // Get export HTML tag

@@ -71,9 +71,6 @@ loadjs.ready(["wrapper", "head"], function() {
         ["password", ew.Validators.required(ew.language.phrase("Password")), <?= $Page->Password->IsInvalid ? "true" : "false" ?>]
     ]);
 
-    // Captcha
-    // <?= Captcha()->getScript("flogin") ?>
-
     // Validate
     flogin.validate = function() {
         if (!this.validateRequired)
@@ -131,9 +128,6 @@ loadjs.ready(["wrapper", "head"], function() {
         </div>
         <div class="invalid-feedback"><?= $Page->Password->getErrorMessage() ?></div>
     </div>
-<!-- captcha html (begin) -->
-<?= Captcha()->getHtml(); ?>
-<!-- captcha html (end) -->
     <div class="d-grid">
         <button class="btn btn-primary ew-btn" name="btn-submit" id="btn-submit" type="submit" formaction="<?= CurrentPageUrl(false) ?>"><?= $Language->phrase("Login", true) ?></button>
     </div>

@@ -505,7 +505,6 @@ class CashAdvanceEdit extends CashAdvance
         $this->used->Visible = false;
         $this->hideFieldsForAddEdit();
         $this->budget_id->Required = false;
-        $this->dateReceived->Required = false;
 
         // Set lookup cache
         if (!in_array($this->PageID, Config("LOOKUP_CACHE_PAGE_IDS"))) {
