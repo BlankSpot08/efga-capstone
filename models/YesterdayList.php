@@ -300,6 +300,8 @@ class YesterdayList extends Yesterday
 
         // Page is terminated
         $this->terminated = true;
+        global $OldSkipHeaderFooter, $SkipHeaderFooter;
+        $SkipHeaderFooter = $OldSkipHeaderFooter;
 
          // Page Unload event
         if (method_exists($this, "pageUnload")) {
@@ -612,6 +614,9 @@ class YesterdayList extends Yesterday
 
         // Setup export options
         $this->setupExportOptions();
+        global $OldSkipHeaderFooter, $SkipHeaderFooter;
+        $OldSkipHeaderFooter = $SkipHeaderFooter;
+        $SkipHeaderFooter = true;
         $this->SUMaemp_amount->setVisibility();
         $this->hideFieldsForAddEdit();
 
