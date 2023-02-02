@@ -145,7 +145,7 @@ $CONFIG = [
 
     // General
     "UNFORMAT_YEAR" => 50, // Unformat year
-    "RANDOM_KEY" => 'nMebim4Dq08jXnxB', // Random key for encryption
+    "RANDOM_KEY" => '822bIfwLmryierhC', // Random key for encryption
     "ENCRYPTION_KEY" => '', // Encryption key for data protection
     "PROJECT_STYLESHEET_FILENAME" => "css/efga_expense_system.css", // Project stylesheet file name
     "USE_COMPRESSED_STYLESHEET" => true, // Compressed stylesheet

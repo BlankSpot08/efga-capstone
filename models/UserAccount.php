@@ -169,6 +169,7 @@ class UserAccount extends DbTable
             'TEXT'
         );
         $this->firstname->InputTextType = "text";
+        $this->firstname->Required = true; // Required field
         $this->Fields['firstname'] = &$this->firstname;
 
         // middlename
